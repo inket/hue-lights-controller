@@ -6,7 +6,7 @@ Bash Script for playing with lights
 
 2) Update lights array in the script with your lightID's by:
       1) First, add your user token in the script (line 11)
-      2) `/hue.sh getLightsInfo | python -m json.tool`
+      2) `./hue.sh getLightsInfo | python -m json.tool`
       
 #### Example Output(3 is the Light ID):
 
