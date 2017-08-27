@@ -34,15 +34,15 @@ Bash Script for playing with lights
     },
 ```
 
-## Usage
+# Usage
 
-#### Get All Lights Info
+### Get All Lights Info
 
 ```
 ./hue.sh getLightsInfo
 ```
 
-#### Get Single Light Status
+### Get Single Light Status
 
 "1" being the light ID
 
@@ -50,32 +50,32 @@ Bash Script for playing with lights
 ./hue.sh getLightStatus 1
 ```
 
-#### Get All Light Status
+### Get All Light Status
 
 ```
 ./hue.sh getAllLightStatus
 ```
 
-#### Turn on Single Light
+### Turn on Single Light
 "1" being the light ID
 
 ```
 ./hue.sh lightOn 1
 ```
-#### Turn off Single Light
+### Turn off Single Light
 "1" being the light ID
 
 ```
 ./hue.sh lightOff 1
 ```
 
-#### Turn on All Lights
+### Turn on All Lights
 
 ```
 ./hue.sh lightsOn
 ```
 
-#### Turn off All Lights
+### Turn off All Lights
 
 ```
 ./hue.sh lightsOff
