@@ -2,7 +2,7 @@
 Bash Script for playing with Phillips Hue lights
 
 ## But why? There's an app for that.
-Custom Automation? I don't know, [be creative](#mail-yourself-the-status-of-your-lights-while-you're-away)....
+Custom Automation? I don't know, [be creative](#mail-yourself-the-status-of-your-lights-while-youre-away)....
 
 ## Prerequisites
 1) Get your own Phllips Hue API User Token by following docs [here](https://developers.meethue.com/documentation/getting-started)
