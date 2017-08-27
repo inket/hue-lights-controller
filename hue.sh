@@ -19,7 +19,6 @@ curl http://$bridgeIP/api/$userToken/lights/
 lights=(3 4 5)
 
 getLightStatus(){
-  light=$2
   curl http://$bridgeIP/api/$userToken/lights/$2
 }
 
@@ -32,8 +31,13 @@ done
 }
 
 lightOn(){
-#Turn on/change brightness
-curl -H 'Content-Type: application/json' -X PUT -d '{"on":true, "bri":200}' http://$bridgeIP/api/$userToken/lights/$3/state
+#Turn on/change brightness single light
+curl -H 'Content-Type: application/json' -X PUT -d '{"on":true, "bri":200}' http://$bridgeIP/api/$userToken/lights/$2/state
+}
+
+lightOff(){
+#Turn off single light
+curl -H 'Content-Type: application/json' -X PUT -d '{"on":false}' http://$bridgeIP/api/$userToken/lights/$2/state
 }
 
 lightsOn(){
