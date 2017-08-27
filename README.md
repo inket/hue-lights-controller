@@ -1,5 +1,5 @@
 # Hue-Lights-Controller
-Bash Script for playing with lights
+Bash Script for playing with Phillips Hue lights
 
 ## Prerequisites
 1) Get your own Phllips Hue API User Token by following docs [here](https://developers.meethue.com/documentation/getting-started)
