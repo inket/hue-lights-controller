@@ -1,2 +1,0 @@
-thisisuspostto fail
-asitshould
