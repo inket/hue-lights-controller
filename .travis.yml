@@ -1,2 +1,2 @@
 language: bash
-script: bash -n *.sh
+script: bash *.sh
