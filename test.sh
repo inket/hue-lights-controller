@@ -1,0 +1,2 @@
+thisisuspostto fail
+asitshould
