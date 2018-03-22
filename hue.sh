@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ###Docs for getting token https://developers.meethue.com/documentation/getting-started
-###Possible Light States https://github.com/sqmk/huejay
+###Possible Light States https://github.com/sqmk/huejay#lights
 
 #Detects Bridge IP automatically
 bridgeIP=$(curl -s https://www.meethue.com/api/nupnp | cut -d: -f3 | tr -d '"}]')
