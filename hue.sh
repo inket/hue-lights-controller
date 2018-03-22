@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###Docs for getting token https://developers.meethue.com/documentation/getting-started
 ###Possible Light States https://github.com/sqmk/huejay#lights
