@@ -19,7 +19,7 @@ username="$HUE_USERNAME"
 
 function getLightsInfo {
   # Get all light attributes
-  curl http://$bridgeIP/api/$username/lights/
+  curl -s http://$bridgeIP/api/$username/lights/
 }
 
 # My Light ID's, yours will differ. Call getLightsInfo
@@ -28,38 +28,39 @@ lights=(3 4 5)
 lightID=$2
 
 function getLightStatus {
-  curl http://$bridgeIP/api/$username/lights/$lightID
+  curl -s http://$bridgeIP/api/$username/lights/$lightID
 }
 
 function getAllLightStatus {
   # Get individual attributes
   for i in ${lights[@]}
   do
-    curl http://$bridgeIP/api/$username/lights/$i
+    curl -s http://$bridgeIP/api/$username/lights/$i
   done
 }
 
 function lightOn {
-  # Turn on/change brightness single light
-  curl -H 'Content-Type: application/json' -X PUT -d '{"on":true, "bri":200}' http://$bridgeIP/api/$username/lights/$lightID/state
+  # Turn on single light
+  curl -H 'Content-Type: application/json' -s -X PUT -d '{"on":true}' http://$bridgeIP/api/$username/lights/$lightID/state
 }
 
 function lightOff {
   # Turn off single light
-  curl -H 'Content-Type: application/json' -X PUT -d '{"on":false}' http://$bridgeIP/api/$username/lights/$lightID/state
+  curl -H 'Content-Type: application/json' -s -X PUT -d '{"on":false}' http://$bridgeIP/api/$username/lights/$lightID/state
+}
 }
 
 function lightsOn {
   for i in ${lights[@]}
   do
-    curl -H 'Content-Type: application/json' -X PUT -d '{"on":true, "bri":200}' http://$bridgeIP/api/$username/lights/$i/state
+    curl -H 'Content-Type: application/json' -s -X PUT -d '{"on":true}' http://$bridgeIP/api/$username/lights/$i/state
   done
 }
 
 function lightsOff {
   for i in ${lights[@]}
   do
-    curl -H 'Content-Type: application/json' -X PUT -d '{"on":false}' http://$bridgeIP/api/$username/lights/$i/state
+    curl -H 'Content-Type: application/json' -s -X PUT -d '{"on":false}' http://$bridgeIP/api/$username/lights/$i/state
   done
 }
 
