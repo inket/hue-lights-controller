@@ -18,8 +18,10 @@ function getLightsInfo {
 # My Light ID's, yours will differ. Call getLightsInfo
 lights=(3 4 5)
 
+lightID=$2
+
 function getLightStatus {
-  curl http://$bridgeIP/api/$userToken/lights/$2
+  curl http://$bridgeIP/api/$userToken/lights/$lightID
 }
 
 function getAllLightStatus {
@@ -32,12 +34,12 @@ function getAllLightStatus {
 
 function lightOn {
   # Turn on/change brightness single light
-  curl -H 'Content-Type: application/json' -X PUT -d '{"on":true, "bri":200}' http://$bridgeIP/api/$userToken/lights/$2/state
+  curl -H 'Content-Type: application/json' -X PUT -d '{"on":true, "bri":200}' http://$bridgeIP/api/$userToken/lights/$lightID/state
 }
 
 function lightOff {
   # Turn off single light
-  curl -H 'Content-Type: application/json' -X PUT -d '{"on":false}' http://$bridgeIP/api/$userToken/lights/$2/state
+  curl -H 'Content-Type: application/json' -X PUT -d '{"on":false}' http://$bridgeIP/api/$userToken/lights/$lightID/state
 }
 
 function lightsOn {
