@@ -10,19 +10,19 @@ bridgeIP=$(curl -s https://discovery.meethue.com | cut -d: -f3 | tr -d '"}]')
 # Example Token
 userToken="8BGXPDAKtXVoBdlDlrauoPJP-6JFENcEq4m6F05t"
 
-getLightsInfo(){
+function getLightsInfo {
   # Get all light attributes
   curl http://$bridgeIP/api/$userToken/lights/
 }
 
-# My Light ID's, yours will differ. Call getLightsInfo()
+# My Light ID's, yours will differ. Call getLightsInfo
 lights=(3 4 5)
 
-getLightStatus(){
+function getLightStatus {
   curl http://$bridgeIP/api/$userToken/lights/$2
 }
 
-getAllLightStatus(){
+function getAllLightStatus {
   # Get individual attributes
   for i in ${lights[@]}
   do
@@ -30,24 +30,24 @@ getAllLightStatus(){
   done
 }
 
-lightOn(){
+function lightOn {
   # Turn on/change brightness single light
   curl -H 'Content-Type: application/json' -X PUT -d '{"on":true, "bri":200}' http://$bridgeIP/api/$userToken/lights/$2/state
 }
 
-lightOff(){
+function lightOff {
   # Turn off single light
   curl -H 'Content-Type: application/json' -X PUT -d '{"on":false}' http://$bridgeIP/api/$userToken/lights/$2/state
 }
 
-lightsOn(){
+function lightsOn {
   for i in ${lights[@]}
   do
     curl -H 'Content-Type: application/json' -X PUT -d '{"on":true, "bri":200}' http://$bridgeIP/api/$userToken/lights/$i/state
   done
 }
 
-lightsOff(){
+function lightsOff {
   for i in ${lights[@]}
   do
     curl -H 'Content-Type: application/json' -X PUT -d '{"on":false}' http://$bridgeIP/api/$userToken/lights/$i/state
