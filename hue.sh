@@ -48,6 +48,19 @@ function lightOff {
   # Turn off single light
   curl -H 'Content-Type: application/json' -s -X PUT -d '{"on":false}' http://$bridgeIP/api/$username/lights/$lightID/state
 }
+
+function lightBrighter {
+  current_brightness=$(getLightStatus $lightID | jq ".state.bri")
+  target_brightness=$((current_brightness + 50))
+  result_brightness=$((target_brightness > 254 ? 254 : target_brightness))
+  curl -H 'Content-Type: application/json' -s -X PUT -d "{\"bri\":$result_brightness}" http://$bridgeIP/api/$username/lights/$lightID/state
+}
+
+function lightDimmer {
+  current_brightness=$(getLightStatus $lightID | jq ".state.bri")
+  target_brightness=$((current_brightness - 50))
+  result_brightness=$((target_brightness < 0 ? 0 : target_brightness))
+  curl -H 'Content-Type: application/json' -s -X PUT -d "{\"bri\":$result_brightness}" http://$bridgeIP/api/$username/lights/$lightID/state
 }
 
 function lightsOn {
